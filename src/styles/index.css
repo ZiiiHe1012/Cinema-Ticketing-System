@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -2;
+    overflow: hidden;
 }
 
 .shadow {
@@ -145,3 +146,23 @@
     font-size: 2.7vh;
     font-weight: 500;
 }
+
+.blokage {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 15vh;
+    background: radial-gradient(
+        ellipse 400% 120% at 50% 80%,
+        #000000 0%,                          
+        rgba(0, 0, 0, 0.95) 20%,
+        rgba(30, 30, 30, 0.9) 35%,       
+        rgba(80, 80, 80, 0.8) 45%,        
+        rgba(150, 150, 150, 0.6) 55%,     
+        rgba(255, 255, 255, 0.3) 70%,     
+        rgba(255, 255, 255, 0) 90%       
+    );
+    clip-path: ellipse(65% 100% at 50% 100%);
+    background-color: #ffffff3a;
+} 
