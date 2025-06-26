@@ -61,14 +61,12 @@
     top: 50%;
     right: 20vw; 
     transform: translateY(-50%);
-    width: 4.4vh;
+    width: 2.2vw;
     height: 4.4vh;
-
-    border-radius: 50%;
     background-color: rgb(0, 0, 0);
     background-image: url(../images/index/avatar.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     cursor: pointer;
 }
 
@@ -77,7 +75,7 @@
     top: 55%;
     right: 14vw; 
     transform: translateY(-55%);
-    width: 10vh;
+    width: 5vw;
     height: 3vh;
     border: 0;
     border-radius: 2vh;
@@ -99,7 +97,7 @@
     top: 55%;
     right: 8vw; 
     transform: translateY(-55%);
-    width: 10vh;
+    width: 5vw;
     height: 3vh;
     border: 0;
     border-radius: 2vh;
