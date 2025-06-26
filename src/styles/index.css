@@ -59,7 +59,7 @@
 .avatar {
     position: absolute;
     top: 50%;
-    right: 14vw; 
+    right: 20vw; 
     transform: translateY(-50%);
     width: 4.4vh;
     height: 4.4vh;
@@ -75,7 +75,7 @@
 .reservation {
     position: absolute;
     top: 55%;
-    right: 8vw; 
+    right: 14vw; 
     transform: translateY(-55%);
     width: 10vh;
     height: 3vh;
@@ -87,6 +87,28 @@
 }
 
 .reservationFont {
+    transform: translateY(-60%);
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1.5vh;
+    font-weight: 500;
+}
+
+.setting {
+    position: absolute;
+    top: 55%;
+    right: 8vw; 
+    transform: translateY(-55%);
+    width: 10vh;
+    height: 3vh;
+    border: 0;
+    border-radius: 2vh;
+    background-color: #716d6d;
+    text-align: center;
+    cursor: pointer;
+}
+
+.settingFont {
     transform: translateY(-60%);
     color: #ffffff;
     font-family: sans-serif;
