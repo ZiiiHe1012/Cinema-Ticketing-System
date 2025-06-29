@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../styles/individualTicketPurchase.css">
+    <title>电影选座系统</title>
+</head>
+<body>
+<main id="app-content">
+    <h1>个人购票</h1> 
+    <section class="box">
+        <h2>购票人1（购票代表）</h2> 
+        <dl class="00000">
+            <dt class="hissu">姓名<span class="sub">Name</span></dt> 
+            <dd>
+                <input type="text" size="10" placeholder="姓名" aria-label="姓名" class="w-mid"> 
+            </dd>
+        </dl> 
+        <dl class="00000">
+            <dt class="hissu">年齢
+                <span class="sub">Age</span>
+            </dt> 
+            <dd>
+                <div class="spinner_area">
+                    <input type="button" value="－" class="btnspinner"> 
+                    <input type="number" size="2" aria-label="年齢" class="w-short no-spin"> 
+                    <input type="button" value="＋" class="btnspinner">
+                </div> 
+            </dd>
+        </dl> 
+        <dl class="00000">
+            <dt>支付方式
+                <span class="sub">Methods of payment.</span>
+            </dt> 
+            <dd>
+                <div class="labelStyle01"><input type="radio" id="kbn_payment2" value="2"> 
+                    <label for="kbn_payment2"><span>微信支付</span></label>
+                    <label for="kbn_payment2"><span>支付宝</span></label>
+                    <label for="kbn_payment2"><span>信用卡</span></label>
+                </div>
+            </dd>
+        </dl>
+    </section> 
+    <section class="box">
+        <h2>购票人2（同行人）</h2> 
+        <dl class="00000">
+            <dt class="hissu">姓名<span class="sub">Name</span></dt> 
+            <dd>
+                <input type="text" size="10" placeholder="姓名" aria-label="姓名" class="w-mid"> 
+            </dd>
+        </dl> 
+        <dl class="00000">
+            <dt class="hissu">年齢
+                <span class="sub">Age</span>
+            </dt> 
+            <dd>
+                <div class="spinner_area">
+                    <input type="button" value="－" class="btnspinner"> 
+                    <input type="number" size="2" aria-label="年齢" class="w-short no-spin"> 
+                    <input type="button" value="＋" class="btnspinner">
+                </div> 
+            </dd>
+        </dl> 
+    </section>
+    <button type="button" class="btnSubmit space-around">购票内容确认</button> 
+</main>
+</body>
+</html>
