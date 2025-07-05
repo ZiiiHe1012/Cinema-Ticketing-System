@@ -28,24 +28,24 @@
     z-index: -1;
 }
 
+/* infoBar 保持 display:flex，并且去掉对 .avatar/.reservation/.setting 的绝对定位 */
 .infoBar {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6vh;
+    top: 0; left: 0;
+    width: 100%; height: 6vh;
+    display: flex;
+    justify-content: center;    /* 中心对齐所有 flex 项 */
+    align-items: center;        /* 垂直居中 */
     opacity: 0.7;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* projectName 仍绝对定位在左侧 */
 .projectName {
     position: absolute;
-    top: 50%;
-    left: 4vw;
-    width: auto;
-    height: auto;
+    top: 50%; left: 4vw;
     transform: translateY(-50%);
 }
 
@@ -56,59 +56,52 @@
     font-weight: 1000;
 }
 
-.avatar {
+/* 1) 把 avatar + 按钮们包在一起，并固定在右侧 */
+.actionContainer {
     position: absolute;
-    top: 50%;
-    right: 20vw; 
+    top: 50%; right: 4vw;
     transform: translateY(-50%);
-    width: 2.2vw;
-    height: 4.4vh;
-    background-color: rgb(0, 0, 0);
-    background-image: url(../images/index/avatar.png);
+    display: flex;
+    align-items: center;
+    gap: 2vw;   /* 同行间距，可根据需要调整 */
+}
+
+/* 2) 头像：用 vh 单位，保持正方形比例 */
+.avatar {
+    width: 4vh;
+    height: 4vh;
+    background-color: #000;
+    background-image: url("../images/index/avatar.png");
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
 }
 
-.reservation {
-    position: absolute;
-    top: 55%;
-    right: 14vw; 
-    transform: translateY(-55%);
-    width: 5vw;
-    height: 3vh;
-    border: 0;
-    border-radius: 2vh;
-    background-color: #ff0310;
-    text-align: center;
-    cursor: pointer;
-}
-
-.reservationFont {
-    transform: translateY(-60%);
-    color: #ffffff;
-    font-family: sans-serif;
-    font-size: 1.5vh;
-    font-weight: 500;
-}
-
+/* 3) 按钮：统一样式，去掉所有绝对定位 */
+.reservation,
 .setting {
-    position: absolute;
-    top: 55%;
-    right: 8vw; 
-    transform: translateY(-55%);
-    width: 5vw;
-    height: 3vh;
-    border: 0;
+    width: 6vw;
+    height: 3.5vh;
+    border: none;
     border-radius: 2vh;
-    background-color: #716d6d;
-    text-align: center;
     cursor: pointer;
+    white-space: nowrap;      /* 禁止换行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* 不同按钮的背景色 */
+.reservation { background-color: #ff0310; }
+.setting     { background-color: #716d6d; }
+
+/* 4) 按钮文字：用行高垂直居中 */
+.reservationFont,
 .settingFont {
-    transform: translateY(-60%);
-    color: #ffffff;
+    line-height: 1;           /* flex 已居中，此处行高可保持默认 */
+    color: #fff;
     font-family: sans-serif;
     font-size: 1.5vh;
     font-weight: 500;
