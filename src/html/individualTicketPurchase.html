@@ -28,7 +28,7 @@
           </div>
         </dd>
       </dl>
-      <dl class="00000">
+      <!-- <dl class="00000">
         <dt>支付方式<span class="sub">Methods of payment</span></dt>
         <dd>
           <div class="labelStyle01">
@@ -42,7 +42,7 @@
             <label for="payment_credit">信用卡</label>
           </div>
         </dd>
-      </dl>
+      </dl> -->
     </section>
 
     <!-- 动态插入的同行人 -->
@@ -52,10 +52,35 @@
     <div class="button-group" style="display:flex; justify-content:center; gap:16px; margin:30px 0;">
         <button type="button" id="add-person" class="btnSubmit">添加人员</button>
         <button type="button" id="remove-person" class="btnSubmit">减少人员</button>
-        <button type="button" class="btnSubmit">购票内容确认</button>
+        <button type="button" id="confirm-payment" class="btnSubmit">确认支付</button>
     </div>
   </main>
-
+<!-- 支付弹窗 -->
+<div class="modal" id="paymentModal">
+    <div class="modal-content">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <div id="paymentOptions">
+        <h3>请选择支付方式</h3>
+        <div class="options">
+        <button class="btn payment-option" data-method="wechat">微信支付</button>
+        <button class="btn payment-option" data-method="alipay">支付宝</button>
+        <button class="btn payment-option" data-method="bank">银行卡</button>
+        </div>
+    </div>
+    <form id="bankForm" style="display:none;">
+        <h3>银行卡支付</h3>
+        <label>
+        卡号：
+        <input type="text" id="cardNumber" placeholder="请输入卡号">
+        </label>
+        <label>
+        密码：
+        <input type="password" id="cardPassword" placeholder="请输入密码">
+        </label>
+        <button type="submit" class="btn">确认支付</button>
+    </form>
+    </div>
+</div>
   <!-- 外部 JS 脚本 -->
   <script src="../scripts/individualTicketPurchase.js"></script>
 </body>

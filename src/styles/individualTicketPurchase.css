@@ -396,3 +396,105 @@ background-color: #c20023;
     opacity: 0.2;
   }
 }
+
+/* 支付弹窗相关 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+.modal-content #bankForm h3 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    margin: 80px auto;
+    padding: 24px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    color: #ddd;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+/* 支付方式选择 */
+#paymentOptions h3,
+#bankForm h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #fff;
+   
+    font-size: 18px;
+}
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-option {
+    flex: 1;
+    margin: 0 6px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.payment-option:hover {
+    background-color: #555;
+}
+
+/* 银行卡表单 */
+#bankForm label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #ddd;
+	text-align: left;
+}
+
+#bankForm input {
+    width: 340px;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+#bankForm .btn {
+    width: 100%;
+    margin-top: 16px;
+    background-color: #3498db;
+}
+
+#bankForm .btn:hover {
+    background-color: #1366d6;
+}
