@@ -11,6 +11,11 @@ body {
 	line-height: 145%;
 	font-size: 100%;
 	text-align: center;
+	background-image: url('../images/individual/background.jpg');
+	background-repeat: repeat-y;      /* 只在竖直（Y）方向重复 */
+	background-position: top center;  /* 可选：水平居中，从顶部开始 */
+	background-size: 100% auto;          /* 水平方向铺满，高度按比例自适应 */
+	background-color: #131212;        /* 在图片加载失败或留白时显示的底色 */
 }
 
 * {
@@ -359,6 +364,28 @@ input.is-invalid{
 	font-size: 80%;
 	color: #f3002c;
 	animation: flash 1.5s linear infinite;
+}
+
+/* 按钮组：flex 布局，三个按钮等宽 */
+.button-group {
+	display: flex;
+	gap: 16px;       /* 按钮间距 */
+	margin: 30px 0;  /* 上下外边距 */
+}
+.button-group .btnSubmit {
+	flex: 1;         /* 平分父容器 */
+}
+
+.btnSubmit {
+	/* 新背景色，比如绿色系 */
+	background-color: #f3002c;
+	/* 文字颜色 */
+	color: #ffffff;
+}
+
+/* 悬停时的深色变化 */
+.btnSubmit:hover {
+background-color: #c20023;
 }
 
 @keyframes flash {

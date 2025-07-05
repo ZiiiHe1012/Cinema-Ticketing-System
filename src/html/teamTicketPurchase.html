@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电影选座系统 — 团体购票</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="stylesheet" href="../styles/individualTicketPurchase.css">
+</head>
+<body>
+  <main id="app-content">
+    <h1>团体购票</h1>
+
+    <!-- 购票代表 -->
+    <section class="box" id="person-1">
+      <h2>购票人1（购票代表）</h2>
+      <dl class="00000">
+        <dt class="hissu">姓名<span class="sub">Name</span></dt>
+        <dd>
+          <input type="text" size="10" placeholder="姓名" aria-label="姓名" class="w-mid">
+        </dd>
+      </dl>
+      <dl class="00000">
+        <dt class="hissu">年齢<span class="sub">Age</span></dt>
+        <dd>
+          <div class="spinner_area">
+            <input type="number" size="2" aria-label="年齢" class="w-short no-spin">
+          </div>
+        </dd>
+      </dl>
+      <dl class="00000">
+        <dt>支付方式<span class="sub">Methods of payment</span></dt>
+        <dd>
+          <div class="labelStyle01">
+            <input type="radio" name="payment" id="payment_wechat" value="wechat">
+            <label for="payment_wechat">微信支付</label>
+
+            <input type="radio" name="payment" id="payment_alipay" value="alipay">
+            <label for="payment_alipay">支付宝</label>
+
+            <input type="radio" name="payment" id="payment_credit" value="credit">
+            <label for="payment_credit">信用卡</label>
+          </div>
+        </dd>
+      </dl>
+    </section>
+
+    <!-- 动态插入的同行人 -->
+    <div id="additional-persons"></div>
+
+    <!-- 按钮区：添加、减少、确认 -->
+    <div class="button-group" style="display:flex; justify-content:center; gap:16px; margin:30px 0;">
+        <button type="button" id="add-person" class="btnSubmit">添加人员</button>
+        <button type="button" id="remove-person" class="btnSubmit">减少人员</button>
+        <button type="button" class="btnSubmit">购票内容确认</button>
+    </div>
+  </main>
+
+  <!-- 外部 JS 脚本 -->
+  <script src="../scripts/individualTicketPurchase.js"></script>
+</body>
+</html>
