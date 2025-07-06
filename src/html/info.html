@@ -3,65 +3,57 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影选座系统 - 我的预订</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.png">
     <link rel="stylesheet" type="text/css" href="../styles/index.css">
     <link rel="stylesheet" type="text/css" href="../styles/info.css">
-    <title>电影选座系统</title>
 </head>
 
 <body>
-    <!-- 顶部导航栏 - 保持原有样式 -->
+    <!-- 顶部导航栏 -->
     <div class="infoBar">
-        <!--左侧项目名称-->
         <div class="projectName">
             <p class="projectNameFont">CINEMATIX</p>
         </div>
-        <!--右侧个人头像-->
         <div class="avatar"></div>
-        <!--右侧返回按钮-->
         <button type="button" class="return" id="returnButton">
             <p class="reservationFont">返回主界面</p>
         </button>
     </div>
     
     <!-- 主要内容区域 -->
-    <div class="content-container">
-        <!-- 订单卡片 -->
-        <div class="order-card">
-            <!-- 订单上半栏信息 -->
-            <div class="route-title">电影名：大闹天宫</div>
-            <div class="route-detail">
-                <div>观影时间：2025-08-03 08:20-11:20</div>
-                <div>姓名：DENG/WEIXIAN</div>
-                <div>年龄：20</div>
-                <div>影厅号：1</div>
-                <div>座位号：第3排17号</div>
+    <div class="content-container" id="ordersContainer">
+        <!-- JavaScript 在这里动态插入订单卡片 -->
+    </div>
+
+    <!-- 支付弹窗 -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <div id="paymentOptions">
+            <h3>请选择支付方式</h3>
+            <div class="options">
+            <button class="btn payment-option" data-method="wechat">微信支付</button>
+            <button class="btn payment-option" data-method="alipay">支付宝</button>
+            <button class="btn payment-option" data-method="bank">银行卡</button>
             </div>
-            
-            <!-- 订单中间部分购票信息 -->
-            <div class="order-info">
-                <div>
-                    <span class="order-number">购票代表：DENG/WEIXIAN</span>
-                    <span class="order-date">预订日期：2025-05-20</span>
-                </div>
-                <button class="btn delete">退票</button>
-            </div>
-            
-            <!-- 订单下半部分票的信息-->
-            <div class="order-category ">
-                <button class="btn">团体票</button>
-                <button class="btn">成人票</button>
-            </div>
-            
-            <!-- 订单最下部分-->
-            <div class="order-info">
-                <div class="status">已出票</div>
-                <div class="price">¥68</div>
-            </div>
+        </div>
+        <form id="bankForm" style="display:none;">
+            <h3>银行卡支付</h3>
+            <label>
+            卡号：
+            <input type="text" id="cardNumber" placeholder="请输入卡号">
+            </label>
+            <label>
+            密码：
+            <input type="password" id="cardPassword" placeholder="请输入密码">
+            </label>
+            <button type="submit" class="btn">确认支付</button>
+        </form>
         </div>
     </div>
 
+  <script src="../scripts/info.js"></script>
 
-    <script src="../scripts/navigation.js"></script>
 </body>
 </html>

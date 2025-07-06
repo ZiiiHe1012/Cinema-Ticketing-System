@@ -59,11 +59,12 @@
 /* 1) 把 avatar + 按钮们包在一起，并固定在右侧 */
 .actionContainer {
     position: absolute;
-    top: 50%; right: 4vw;
+    top: 50%;
+    right: 4vw;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
-    gap: 2vw;   /* 同行间距，可根据需要调整 */
+    gap: 1.5vw;   /* 同行间距，可根据需要调整 */
 }
 
 /* 2) 头像：用 vh 单位，保持正方形比例 */
@@ -116,7 +117,7 @@
     transform: translate(-50%, -20%);
     background-color: rgba(0, 0, 0, 0);
     text-align: center;
-    line-height: 1vh;
+    line-height: 4vh;
 }
 
 .textBoxFont {

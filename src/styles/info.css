@@ -19,20 +19,27 @@ body {
     top: 55%;
     right: 8vw; 
     transform: translateY(-55%);
-    width: 10vh;
-    height: 3vh;
+    width: 11vh;
+    height: 3.5vh;
     border: 0;
     border-radius: 2vh;
     background-color: #ff0310;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.return:hover {
+    background-color: #e00213;
 }
 
 /* 订单信息内容容器 */
 .content-container {
-    max-width: 1200px;
-    margin: 100px auto 0 auto;
-    padding: 20px;
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
 }
 
 /* 订单卡片样式  */
@@ -40,27 +47,44 @@ body {
     background-color: #1a1a1a; 
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    padding: 24px;
     color: #fff; 
     border: 1px solid #333; 
 }
 
 /* 电影标题样式 */
 .route-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: -4px;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
     font-size: 18px;
     font-weight: bold;
     color: #fff; 
-    margin-bottom: 10px;
-    padding-bottom: 5px;
     border-bottom: 1px solid #444; 
 }
 
 /* 个人信息详情样式 */
 .route-detail {
-    margin-bottom: 15px;
-    padding-left: 10px;
-    color: #ccc; 
+    display: grid;
+    grid-template-columns: 40% auto;
+    row-gap: 12px;
+    margin-bottom: 20px;
+}
+
+.route-detail .left {
+    grid-column: 1;
+}
+
+.route-detail .right {
+    grid-column: 2;
+}
+
+.route-detail .right-flex {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* 订单信息样式 */
@@ -79,14 +103,21 @@ body {
 }
 
 .order-date {
+    margin-left: 12px;
     color: #999; 
 }
 
-/* 价格样式 */
-.price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ff5252; 
+/* 分类 + 价格 同行 */
+.order-category.actions-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.order-category.actions-line .categories {
+    display: flex;
+    gap: 10px;
 }
 
 /* 票价按钮区域样式 */
@@ -97,6 +128,13 @@ body {
     flex-wrap: wrap;
 }
 
+/* 价格样式 */
+.order-category .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff5252;
+    }
+
 .btn {
     padding: 8px 15px;
     border: none;
@@ -105,11 +143,20 @@ body {
     color: white;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #2980b9;
+.btn.pay {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #c9a40d;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn.pay:hover {
+    background-color: #b4930d;
 }
 
 .btn.delete {
@@ -120,7 +167,131 @@ body {
     background-color: #c0392b;
 }
 
-/* 状态样式 */
+.btn.cancel {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #999;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.btn.cancel:hover {
+    background-color: #888;
+}
+
+/* 支付 / 退票 样式 */
 .status {
     color: #4caf50; 
+}
+.status.unpaid {
+    color: #f1c40f;
+}
+
+/* 已退票 / 已取消 样式 */
+.status.refunded,
+.status.cancelled {
+    color: #999;
+}
+
+/* 支付弹窗相关 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+.modal-content #bankForm h3 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    margin: 80px auto;
+    padding: 24px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    color: #ddd;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+/* 支付方式选择 */
+#paymentOptions h3,
+#bankForm h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #fff;
+   
+    font-size: 18px;
+}
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-option {
+    flex: 1;
+    margin: 0 6px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.payment-option:hover {
+    background-color: #555;
+}
+
+/* 银行卡表单 */
+#bankForm label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+#bankForm input {
+    width: 380px;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+#bankForm .btn {
+    width: 100%;
+    margin-top: 16px;
+    background-color: #3498db;
+}
+
+#bankForm .btn:hover {
+    background-color: #1366d6;
 }
