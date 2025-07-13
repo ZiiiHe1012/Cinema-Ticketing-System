@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../images/favicon.png">
-        <title>电影选座系统</title>
-    </head>
-    <body></body>
-    <footer></footer>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+    <title>电影选座系统</title>
+</head>
+<body>
+    <!--背景-->
+    <div class="background">
+        <!--背景暗色调透明度-->
+        <div class="shadow"></div>
+    </div>
+    <!--上方信息栏-->
+    <div class="infoBar">
+        <!--左侧项目名称-->
+        <div class="projectName">
+            <p class="projectNameFont">CINEMATIX</p>
+        </div>
+        <div class="actionContainer">
+            <!--右侧个人头像-->
+            <div class="avatar"></div>
+            <!--右侧我的预定-->
+            <button type="button" class="reservation" id="reservationButton">
+                <p class="reservationFont">我的订单</p>
+            </button>
+            <!--右侧参数配置-->
+            <button type="button" class="setting" id="settingButton">
+                <p class="settingFont">参数配置</p>
+            </button>
+        </div>
+    </div>
+    <!--中部信息栏-->
+    <div class="textBox">
+        <p class="textBoxFont">精 彩 大 片</p>
+        <p class="textBoxFont">从 选 对 座 位 开 始</p>
+    </div>
+    <!--中部个人购票-->
+    <button type="button", class="individualPurchase" id="individualPurchaseButton">
+        <p class="purchaseFont">个 人 购 票</p>
+    </button>
+    <!--中部团体购票-->
+    <button type="button", class="groupPurchase" id="groupPurchaseButton">
+        <p class="purchaseFont">团 体 购 票</p>
+    </button>
+    <!--下方遮挡-->
+    <div class="blokage"></div>
+
+    <script src="../scripts/navigation.js"></script>
+</body>
+<footer></footer>
 </html>

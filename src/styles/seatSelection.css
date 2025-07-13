@@ -1,0 +1,526 @@
+/* 继承原有页面的黑色背景主题 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* 主容器布局 */
+.main-container {
+    display: flex;
+    margin-top: 6vh;
+    height: calc(100vh - 6vh);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+/* 左侧座位图面板 */
+.left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* 右侧信息面板 */
+.right-panel {
+    width: 380px;
+    padding: 30px;
+    background-color: rgba(26, 26, 26, 0.9);
+    border-left: 1px solid #333;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 返回主界面按钮样式 */
+.return {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 11vh;
+    height: 3.5vh;
+    border: 0;
+    border-radius: 2vh;
+    background-color: #ff0310;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.return:hover {
+    background-color: #e00213;
+}
+
+/* 电影信息 */
+.movie-info {
+    background-color: rgba(63, 62, 62, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #474646;
+}
+
+.movie-info h2 {
+    color: #ff0310;
+    margin: 0 0 15px 0;
+    font-size: 24px;
+}
+
+.session-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* 人员列表 */
+.person-list {
+    background-color: rgba(63, 62, 62, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #474646;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 350px;
+}
+
+.person-list h3 {
+    color: #ff0310;
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    border-bottom: 1px dotted #666;
+    padding-bottom: 10px;
+}
+
+/* 人员卡片 */
+.person-card {
+    background-color: rgba(40, 40, 40, 0.8);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.person-card:hover {
+    background-color: rgba(60, 60, 60, 0.9);
+    border-color: #1882ba;
+}
+
+.person-card.selected {
+    background-color: rgba(24, 130, 186, 0.3);
+    border-color: #1882ba;
+    box-shadow: 0 0 10px rgba(24, 130, 186, 0.5);
+}
+
+.person-card.has-seat {
+    border-left: 4px solid #4caf50;
+}
+
+.person-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.person-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.person-age {
+    color: #999;
+    font-size: 14px;
+}
+
+.person-type {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.person-type.child {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.person-type.elder {
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+.person-type.adult {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.seat-info {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #444;
+    color: #4caf50;
+    font-size: 14px;
+}
+
+/* 选座汇总 */
+.selection-summary {
+    background-color: rgba(63, 62, 62, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #474646;
+}
+
+.selected-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #444;
+}
+
+.selected-info p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.selected-info span {
+    color: #ff0310;
+    font-weight: bold;
+}
+
+#selectedSeatsInfo {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.seat-assignment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: rgba(40, 40, 40, 0.6);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.seat-assignment .name {
+    color: #1882ba;
+    font-weight: bold;
+}
+
+.seat-assignment .seat {
+    color: #4caf50;
+}
+
+/* 控制按钮 - 放在最底部 */
+.control-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.control-buttons button {
+    flex: 1;
+    min-width: 100px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #1882ba;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #2a8fc6;
+}
+
+.btn-secondary {
+    background-color: #666;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #777;
+}
+
+.btn-confirm {
+    background-color: #4caf50;
+    color: #fff;
+    width: 100%;
+}
+
+.btn-confirm:hover {
+    background-color: #5cbf60;
+}
+
+/* 座位图例 */
+.seat-legend {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(63, 62, 62, 0.8);
+    border-radius: 8px;
+    border: 1px solid #474646;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-item img {
+    width: 25px;
+    height: 25px;
+}
+
+.legend-item span {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Canvas容器 - 居中显示 */
+#canvas-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#myCanvas {
+    cursor: pointer;
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    margin: 150px auto;
+    padding: 24px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    color: #ddd;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+.modal h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-btn:first-child {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.modal-btn:first-child:hover {
+    background-color: #f39c12;
+}
+
+.modal-btn.pay {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.modal-btn.pay:hover {
+    background-color: #2980b9;
+}
+
+/* 支付选项 */
+.options {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.payment-option {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.payment-option:hover {
+    background-color: #555;
+}
+
+/* 银行卡表单 */
+#bankForm label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+#bankForm input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+#bankForm .btn {
+    width: 100%;
+    margin-top: 16px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#bankForm .btn:hover {
+    background-color: #1366d6;
+}
+
+/* 滚动条样式 */
+.right-panel::-webkit-scrollbar,
+.person-list::-webkit-scrollbar,
+#selectedSeatsInfo::-webkit-scrollbar {
+    width: 8px;
+}
+
+.right-panel::-webkit-scrollbar-track,
+.person-list::-webkit-scrollbar-track,
+#selectedSeatsInfo::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.right-panel::-webkit-scrollbar-thumb,
+.person-list::-webkit-scrollbar-thumb,
+#selectedSeatsInfo::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.right-panel::-webkit-scrollbar-thumb:hover,
+.person-list::-webkit-scrollbar-thumb:hover,
+#selectedSeatsInfo::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* 团体票特殊样式 */
+.group-mode .person-list h3::after {
+    content: " (团体票)";
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .right-panel {
+        width: 320px;
+    }
+    
+    #myCanvas {
+        width: 700px;
+        height: 700px;
+    }
+}
+
+/* 禁用状态 */
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(24, 130, 186, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(24, 130, 186, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(24, 130, 186, 0);
+    }
+}
+
+.person-card.selected {
+    animation: pulse 2s infinite;
+}
