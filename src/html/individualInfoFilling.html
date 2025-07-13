@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电影选座系统 — 个人购票信息</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="stylesheet" type="text/css" href="../styles/index.css">
+  <link rel="stylesheet" type="text/css" href="../styles/individualInfoFilling.css">
+</head>
+
+<body>
+  <div class="background">
+    <!--背景暗色调透明度-->
+    <div class="shadow"></div>
+  </div>
+  <!-- 顶部导航栏 -->
+  <div class="infoBar">
+    <div class="projectName">
+        <p class="projectNameFont">CINEMATIX</p>
+    </div>
+    <div class="actionContainer">
+      <div class="avatar"></div>
+      <button class="return" id="returnButton">
+        <span class="reservationFont">返回主界面</span>
+      </button>
+    </div>
+  </div>
+
+  <main id="app-content">
+    <h1>个人购票信息</h1>
+    <!-- 购票代表 -->
+    <section class="box" data-index="1">
+      <button class="remove-person-btn" title="删除本条">&minus;</button>
+      <h2>购票人1（购票代表）</h2>
+      <div class="field-row">
+        <dl>
+          <dt class="hissu">姓名<span class="sub">Name</span></dt>
+          <dd><input type="text" class="w-mid"></dd>
+        </dl>
+        <dl>
+          <dt class="hissu">年龄<span class="sub">Age</span></dt>
+          <dd>
+            <div class="spinner_area">
+              <input type="number" class="w-short no-spin" min="0" max="200" oninput="this.value = Math.min(Math.max(this.value, 0), 200)">
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </section>
+    
+    <!-- 同行人动态插入区域 -->
+    <div id="additional-persons"></div>
+
+    <!-- 添加＋号 & 下一步 -->
+    <div class="controls">
+      <button id="add-person" class="btnAdd" title="添加人员">＋</button>
+      <button id="next-step" class="btnSubmit next-step-btn">下一步</button>
+    </div>
+  </main>
+
+  <!-- 删除原支付弹窗及相关脚本引用 -->
+  <script src="../scripts/individualInfoFilling.js"></script>
+  
+</body>
+</html>

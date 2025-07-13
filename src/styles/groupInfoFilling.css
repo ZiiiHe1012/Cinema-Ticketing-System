@@ -1,0 +1,349 @@
+/* 全局样式 */
+html {
+    margin: 0;
+    padding: 0;
+}
+
+/* 主体样式 */
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 返回主界面按键 */
+.return {
+    top: 55%;
+    right: 8vw;
+    width: 11vh;
+    height: 3.5vh;
+    border: 0;
+    border-radius: 2vh;
+    background-color: #ff0310;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.return:hover {
+    background-color: #e00213;
+}
+
+.return p {
+    margin: 0;
+}
+
+* {
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+.clear {
+	clear: both;
+}
+
+.red {
+	color: #be0022;
+}
+
+.small {
+	line-height: 130%;
+	font-size: 75%;
+}
+
+a {
+	text-decoration: none;
+	color: #006699;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+.tableStyle01 {
+	font-size: 90%;
+}
+
+.tableStyle01 th {
+	max-width: 100px;
+	font-weight: bold;
+	text-align: center;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-top: 5px;
+}
+
+.tableStyle01 td {
+	text-align: left;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.tableStyle01 .txt-r {
+	text-align: right;
+}
+
+header {
+	margin-bottom: 30px;
+	padding: 10px;
+	color: white;
+	background-color: #1882ba;
+}
+
+.logoHead {
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	height: auto;
+	width: 140px;
+}
+
+footer {
+	margin-top: 30px;
+	color: #95b4bf;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	text-align: center;
+	letter-spacing: 1px;
+	line-height: 1em;
+	font-size: 75%;
+}
+
+main {
+	padding-right: 10px;
+	padding-left: 10px;
+	width: 100%;
+	max-width: 870px;
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 30px;
+	padding-top: 30px;
+	line-height: 1em;
+	font-size: 160%;
+}
+                  
+section.box {
+	border-color: #474646;
+	border-style: solid;
+	border-width: 1px;
+	padding: 30px;
+	position: relative;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	background-color: rgb(63, 62, 62);
+	border-radius: 10px;
+}
+section.box h2{
+	color: #ff0310;
+	padding-left: 5px;
+	border-bottom-color: #c6c6c6;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+	padding-top: 0px;
+	line-height: 1em;
+	font-size: 140%;
+}
+dl {
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+}
+dl dt{
+	line-height: 1.4em;
+	position: relative;
+	font-weight: bold;
+	width: 60px;
+	flex-shrink: 0;
+	font-size: 14px;
+	display: table-cell;
+	vertical-align: text-top;
+}
+dl dd{
+	padding-left: 13px;
+	display: table-cell;
+}
+dl.optionList dt{
+	width: auto;
+	font-style: normal;
+	font-weight: normal;
+	margin-bottom: 6px;
+	line-height: 1.4em;
+	position: relative;
+	font-size: 90%;
+	vertical-align: text-top;
+}
+dl.optionList dd{
+	padding-left: 15px;
+	white-space: nowrap;
+}
+dt .sub{
+	color: #7f7f7f;
+	font-style: normal;
+	font-weight: normal;
+	display: block;
+	font-size: 12px;
+	margin-top: -2px;
+}
+
+dd .note{
+	padding-top: 1px;
+	margin-bottom: 5px;
+	display: block;
+	color: #7f7f7f;
+	line-height: 1.4em;
+	font-size: 12px;
+}
+
+.field-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+	margin-left: 10px;
+}
+
+.field-row dt {
+	font-size: 16px;
+}
+
+.field-row dl {
+	flex: 1;
+	margin-bottom: -5px;
+}
+
+input[type='text'],input[type='number'] {
+	margin-bottom: 5px;
+	background-color: #faffff;
+	font-size: 95%;
+	padding: 11px;
+	border-color: #e1e1e1;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 5px;
+}
+
+
+textarea{
+	background-color: #101010;
+	font-size: 95%;
+	padding: 11px;
+	border-color: #e1e1e1;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 5px;
+}
+
+.w-short{
+	max-width: 120px;
+	width: 100%;
+}
+
+.w-mid{
+	max-width: 150px;
+	width: 100%;
+}
+
+.w-long{
+	max-width: 250px;
+	width: 100%;
+}
+
+.w-max{
+	width: 100%;
+}
+
+/* 为每个信息框添加减号按钮样式 */
+section.box {
+    position: relative;
+}
+.remove-person-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background-color: #f3002c;
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+.remove-person-btn:hover {
+    background-color: #c20023;
+}
+
+/* 添加人员和下一步按钮容器 */
+.controls {
+	display: flex;
+	justify-content: flex-end;
+	gap: 16px;
+	padding: 20px 0;
+}
+
+/* 加号按钮 */
+.btnAdd {
+	margin-top: -10px;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background-color: #1882ba;
+    color: #fff;
+    font-size: 14px;
+    line-height: 18px;
+    cursor: pointer;
+    transition: background-color .3s;
+	font-weight: bold;
+}
+.btnAdd:hover {
+    background-color: #2a8fc6;
+}
+
+/* 下一步按钮 */
+.next-step-btn {
+	margin-top: -10px;
+    margin-left: auto;
+	padding: 10px 20px;
+	background-color: #1882ba;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color .3s;
+}
+
+.next-step-btn:hover {
+	background-color: #187cb2;
+}
+
+input[type='text'],
+input[type='number'] {
+    margin-bottom: 10px;
+}
+
+input[type='text']:hover,
+input[type='number']:hover {
+  border-color: #666666;
+  transition: border-color 0.1s, box-shadow 0.1s;
+}
+
+main#app-content {
+	margin-top: 40px;
+  }
