@@ -36,10 +36,14 @@ function renderBookingInfo() {
         <span class="total-price">¥${totalPrice}</span>
       </div>
     </div>
+
     <div class="route-detail summary-detail">
-      <span>观影时间：${showTime}</span>
-      <span>影厅号：${hallNumber}</span>
+      <div class="left">观影时间：${showTime}</div>
+      <div class="left">影厅号：${hallNumber}</div>
+      <div class="person-count">观影人数：${persons.length}</div>
     </div>
+
+
     <div class="order-category actions-line">
       <div class="categories">
         <button class="btn category">团体票</button>

@@ -34,18 +34,24 @@
       <button class="remove-person-btn" title="删除本条">&minus;</button>
       <h2>购票人1（购票代表）</h2>
       <div class="field-row">
-        <dl>
-          <dt class="hissu">姓名<span class="sub">Name</span></dt>
-          <dd><input type="text" class="w-mid"></dd>
-        </dl>
-        <dl>
-          <dt class="hissu">年龄<span class="sub">Age</span></dt>
-          <dd>
-            <div class="spinner_area">
-              <input type="number" class="w-short no-spin" min="0" max="200" oninput="this.value = Math.min(Math.max(this.value, 0), 200)">
-            </div>
-          </dd>
-        </dl>
+        <div class="form-group">
+          <label for="user-name" class="form-label">
+            姓名 <span class="form-label__sub">Name</span>
+          </label>
+          <div class="form-control">
+            <input id="user-name" name="userName" type="text" class="form-input w-mid" />
+          </div>
+        </div>        
+        <div class="form-group">
+          <label for="user-age" class="form-label">
+            年龄 <span class="form-label__sub">Age</span>
+          </label>
+          <div class="form-control spinner-area">
+            <input id="user-age" name="age" type="number"
+                   class="form-input w-short no-spin"
+                   min="0" max="200" ... />
+          </div>
+        </div>        
       </div>
     </section>
     

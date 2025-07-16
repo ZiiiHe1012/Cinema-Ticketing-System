@@ -10,6 +10,10 @@
 </head>
 
 <body>
+  <div class="background">
+    <!--背景暗色调透明度-->
+    <div class="shadow"></div>
+  </div>
   <!-- 顶部导航栏 -->
   <div class="infoBar">
     <div class="projectName">
@@ -25,37 +29,36 @@
 
   <main id="app-content">
     <h1>团体购票信息</h1>
-    <!-- 购票代表 -->
-    <section class="box" data-index="1">
-      <button class="remove-person-btn" title="删除本条">&minus;</button>
-      <h2>观影人1</h2>
-      <div class="field-row">
-        <dl>
-          <dt class="hissu">姓名<span class="sub">Name</span></dt>
-          <dd><input type="text" class="w-mid"></dd>
-        </dl>
-        <dl>
-          <dt class="hissu">年龄<span class="sub">Age</span></dt>
-          <dd>
-            <div class="spinner_area">
-              <input type="number" class="w-short no-spin" min="0" max="200" oninput="this.value = Math.min(Math.max(this.value, 0), 200)">
-            </div>
-          </dd>
-        </dl>
+  
+    <!-- 第一步：输入人数 -->
+    <div id="step1" class="step">
+      <div class="form-group">
+        <label for="participant-count" class="form-label">
+          人数 <span class="form-label__sub">Count</span>
+        </label>
+        <div class="form-control">
+          <input id="participant-count"
+                 type="number"
+                 min="1"
+                 max="20"
+                 class="form-input w-short no-spin"
+                 oninput="this.value = Math.min(Math.max(parseInt(this.value,10)||0,2),20)" />
+        </div>
       </div>
-    </section>
-    
-    <!-- 同行人动态插入区域 -->
-    <div id="additional-persons"></div>
-
-    <!-- 添加＋号 & 下一步 -->
-    <div class="controls">
-      <button id="add-person" class="btnAdd" title="添加人员">＋</button>
-      <button id="next-step" class="btnSubmit next-step-btn">下一步</button>
+      <div class="controls">
+        <button id="confirm-count" class="btnSubmit next-step-btn">确认人数</button>
+      </div>
+    </div>
+  
+    <!-- 第二步：填写每位成员信息，初始隐藏 -->
+    <div id="step2" class="step" style="display: none;">
+      <div id="participants-container"></div>
+      <div class="controls">
+        <button id="next-step" class="btnSubmit next-step-btn">下一步</button>
+      </div>
     </div>
   </main>
-
-  <!-- 删除原支付弹窗及相关脚本引用 -->
+  
   <script src="../scripts/groupInfoFilling.js"></script>
   
 </body>

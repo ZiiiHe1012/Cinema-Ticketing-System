@@ -1,101 +1,93 @@
-// groupInfoFilling.js
 document.addEventListener('DOMContentLoaded', () => {
-  let personCount = 1;
-  const container = document.getElementById('additional-persons');
-  const addBtn    = document.getElementById('add-person');
-  const nextBtn   = document.getElementById('next-step');
+  const step2 = document.getElementById('step2');
+  const countInput = document.getElementById('participant-count');
+  const confirmBtn = document.getElementById('confirm-count');
+  const participantsContainer = document.getElementById('participants-container');
+  const nextStepBtn = document.getElementById('next-step');
 
-  // 初始化：隐藏代表的删除按钮（仅一人时不允许删除）
-  updateRemoveButtons();
-
-  // 添加新购票人
-  addBtn.addEventListener('click', () => {
-    personCount++;
-    const sec = document.createElement('section');
-    sec.className = 'box';
-    sec.setAttribute('data-index', personCount);
-    sec.innerHTML = `
-      <button class="remove-person-btn" title="删除本条">&minus;</button>
-      <h2>观影人${personCount}</h2>
-      <div class="field-row">
-        <dl>
-          <dt class="hissu">姓名<span class="sub">Name</span></dt>
-          <dd><input type="text" class="w-mid"></dd>
-        </dl>
-        <dl>
-          <dt class="hissu">年龄<span class="sub">Age</span></dt>
-          <dd>
-            <div class="spinner_area">
-              <input type="number" class="w-short no-spin" min="0" max="200"
-                     oninput="this.value = Math.min(Math.max(this.value, 0), 200)">
-            </div>
-          </dd>
-        </dl>
-      </div>`;
-    container.appendChild(sec);
-    attachRemoveEvent(sec.querySelector('.remove-person-btn'));
-    renumberSections();
-    updateRemoveButtons();
-  });
-
-  // 下一步：先校验人数，再校验输入框，再跳转
-  nextBtn.addEventListener('click', () => {
-    // —— 人数校验 ——  
-    const secs = document.querySelectorAll('main#app-content section.box');
-    if (secs.length < 2) {
-      alert('团体购票至少需要2位观影人');
+  // 第一步：确认人数，生成表单
+  confirmBtn.addEventListener('click', () => {
+    const count = parseInt(countInput.value, 10);
+    if (!count || count < 2 || count > 20) {
+      alert('请输入有效的人数（2 ~ 20 人）');
+      countInput.focus();
       return;
     }
-    // —— 输入非空校验 ——  
-    const inputs = document.querySelectorAll(
-      'main#app-content input[type="text"], main#app-content input[type="number"]'
-    );
-    for (const inp of inputs) {
-      if (!inp.value.trim()) {
+
+    // 清空旧内容
+    participantsContainer.innerHTML = '';
+
+    for (let i = 1; i <= count; i++) {
+      const sec = document.createElement('section');
+      sec.className = 'box';
+      sec.innerHTML = `
+        <h2>成员 ${i}</h2>
+        <div class="field-row">
+          <div class="form-group">
+            <label for="member-name-${i}" class="form-label">
+              姓名 <span class="form-label__sub">Name</span>
+            </label>
+            <div class="form-control">
+              <input id="member-name-${i}"
+                     name="memberName-${i}"
+                     type="text"
+                     class="form-input w-mid" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="member-age-${i}" class="form-label">
+              年龄 <span class="form-label__sub">Age</span>
+            </label>
+            <div class="form-control spinner-area">
+              <input id="member-age-${i}"
+                     name="memberAge-${i}"
+                     type="number"
+                     class="form-input w-short no-spin"
+                     min="0" max="200"
+                     oninput="this.value = Math.min(Math.max(parseInt(this.value,10)||0,0),200)" />
+            </div>
+          </div>
+        </div>`;
+      participantsContainer.appendChild(sec);
+    }
+
+    countInput.disabled = true;
+    countInput.classList.add('confirmed');
+    confirmBtn.style.display = 'none';
+
+    // 切换到第二步
+    step2.style.display = '';
+  });
+
+  // 第二步：校验并提交
+  nextStepBtn.addEventListener('click', () => {
+    const inputs = step2.querySelectorAll('input[type="text"], input[type="number"]');
+    for (const input of inputs) {
+      if (!input.value.trim()) {
         alert('请填写所有信息后再继续');
-        inp.focus();
+        input.focus();
         return;
       }
     }
-    // —— 保存并跳转 ——  
-    const persons = Array.from(secs).map(sec => ({
-      userName: sec.querySelector('input[type="text"]').value.trim(),
-      age:      +sec.querySelector('input[type="number"]').value,
-      isRepresentative: sec.dataset.index === '1'
-    }));
-    const orderRepresentative = persons.find(p => p.isRepresentative).userName;
-    sessionStorage.setItem('bookingData',
-      JSON.stringify({ persons, orderRepresentative }));
+
+    // 收集数据
+    const persons = [];
+    const sections = participantsContainer.querySelectorAll('section.box');
+    sections.forEach((sec, idx) => {
+      const name = sec.querySelector(`input[name="memberName-${idx+1}"]`).value.trim();
+      const age  = parseInt(
+        sec.querySelector(`input[name="memberAge-${idx+1}"]`).value,
+        10
+      );
+      persons.push({ userName: name, age: age });
+    });
+
+    // 存储并跳转
+    sessionStorage.setItem('bookingData', JSON.stringify({ persons }));
     window.location.href = 'seatSelection.html?mode=group';
   });
 
-  // 以下函数不变：attachRemoveEvent、renumberSections、updateRemoveButtons、setupReturnLogic
-  function attachRemoveEvent(btn) {
-    btn.addEventListener('click', () => {
-      const sec = btn.closest('section.box');
-      sec.remove();
-      personCount--;
-      renumberSections();
-      updateRemoveButtons();
-    });
-  }
-  function renumberSections() {
-    const secs = document.querySelectorAll('main#app-content section.box');
-    secs.forEach((sec, idx) => {
-      const i = idx + 1;
-      sec.setAttribute('data-index', i);
-      sec.querySelector('h2').textContent = `观影人${i}`;
-    });
-  }
-  function updateRemoveButtons() {
-    const secs = document.querySelectorAll('main#app-content section.box');
-    const show = secs.length > 1;
-    secs.forEach(sec => {
-      const btn = sec.querySelector('.remove-person-btn');
-      btn.style.display = (show && sec.dataset.index !== '1') ? 'block' : 'none';
-    });
-  }
-  attachRemoveEvent(document.querySelector('section.box .remove-person-btn'));
+  // 返回按钮逻辑
   function setupReturnLogic() {
     document.getElementById('returnButton')
       .addEventListener('click', () => window.location.href = 'index.html');

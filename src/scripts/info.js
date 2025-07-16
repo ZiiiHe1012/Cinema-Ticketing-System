@@ -98,7 +98,6 @@ function renderGroupOrder(order, container) {
   
   const isPending = order.status === '待支付';
   const isPaid = order.status === '已出票' || order.status === '已支付';
-  const isCancelled = order.status === '已取消' || order.status === '已退票';
   
   const btnsHtml = isPaid
     ? `<button class="btn delete" data-id="${order.id}">退票</button>`
@@ -117,8 +116,9 @@ function renderGroupOrder(order, container) {
       </div>
     </div>
     <div class="route-detail summary-detail">
-      <span>观影时间：${order.time}</span>
-      <span>影厅号：${order.hall}</span>
+      <div class="left">观影时间：${order.time}</div>
+      <div class="left">影厅号：${order.hall}</div>
+      <div class="person-count">观影人数：${order.persons.length}</div>
     </div>
     <div class="order-category actions-line">
       <div class="categories">

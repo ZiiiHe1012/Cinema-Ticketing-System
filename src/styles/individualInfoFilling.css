@@ -136,6 +136,7 @@ h1 {
 	padding-top: 30px;
 	line-height: 1em;
 	font-size: 160%;
+	color: #ff0310;
 }
                   
 section.box {
@@ -150,7 +151,7 @@ section.box {
 	border-radius: 10px;
 }
 section.box h2{
-	color: #ff0310;
+	color: orange;
 	padding-left: 5px;
 	border-bottom-color: #c6c6c6;
 	border-bottom-style: dotted;
@@ -161,40 +162,44 @@ section.box h2{
 	line-height: 1em;
 	font-size: 140%;
 }
-dl {
-	display: flex;
-	align-items: center;
-	margin-bottom: 12px;
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
 }
-dl dt{
-	line-height: 1.4em;
-	position: relative;
-	font-weight: bold;
-	width: 60px;
-	flex-shrink: 0;
-	font-size: 14px;
-	display: table-cell;
-	vertical-align: text-top;
+
+.form-label {
+  line-height: 1.4em;
+  position: relative;
+  font-weight: bold;
+  flex-shrink: 0;
+  font-size: 14px;
+  width: 60px;             /* 如果需要固定宽度 */
+  display: table-cell;     /* 保留原来垂直对齐方式 */
+  vertical-align: text-top;
 }
-dl dd{
+
+.form-control {
 	padding-left: 13px;
 	display: table-cell;
 }
-dl.optionList dt{
+
+.form-group--option-list .form-label {
 	width: auto;
 	font-style: normal;
 	font-weight: normal;
 	margin-bottom: 6px;
 	line-height: 1.4em;
-	position: relative;
 	font-size: 90%;
 	vertical-align: text-top;
 }
-dl.optionList dd{
+.form-group--option-list .form-control {
 	padding-left: 15px;
 	white-space: nowrap;
 }
-dt .sub{
+
+.form-label__sub {
 	color: #7f7f7f;
 	font-style: normal;
 	font-weight: normal;
@@ -203,7 +208,7 @@ dt .sub{
 	margin-top: -2px;
 }
 
-dd .note{
+.form-control .form-note {
 	padding-top: 1px;
 	margin-bottom: 5px;
 	display: block;
@@ -213,17 +218,17 @@ dd .note{
 }
 
 .field-row {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
 	margin-left: 10px;
 }
 
-.field-row dt {
+.field-row .form-label {
 	font-size: 16px;
 }
 
-.field-row dl {
+.field-row .form-group {
 	flex: 1;
 	margin-bottom: -5px;
 }
@@ -349,4 +354,4 @@ input[type='number']:hover {
 
 main#app-content {
 	margin-top: 40px;
-  }
+}
