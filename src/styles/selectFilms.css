@@ -1,0 +1,199 @@
+.movie-list-container {
+    display: flex;
+    justify-content: center; /* 居中对齐 */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 20px; /* 外边距可根据需要调整 */
+  }
+  
+  .movie-list {
+    display: flex; /* 使电影项水平排列 */
+    justify-content: space-between; /* 各项之间等距 */
+    width: 100%; /* 容器宽度 */
+    max-width: 900px; /* 最大宽度可以根据需要调整 */
+  }
+  
+  .movie {
+    flex: 1; /* 每个电影项平分空间 */
+    text-align: center; /* 图片居中对齐 */
+  }
+  
+  .movie img {
+    width: 170px; /* 图片宽度 */
+    height: 235px; /* 图片高度 */
+    object-fit: cover; /* 保证图片按比例裁剪以填满指定区域 */
+    border-radius: 8px; /* 图片圆角 */
+  }
+
+  /* 设置表格容器 */
+.plist-container {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 设置表格样式 */
+  .plist {
+    width: 100%;
+    border-collapse: collapse; /* 去掉单元格之间的间隙 */
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  /* 设置表头样式 */
+  .plist thead {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: left;
+  }
+  
+  .plist thead th {
+    padding: 12px 15px;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  /* 设置表格内容行的样式 */
+  .plist tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .plist tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+  
+  .plist tbody tr:hover {
+    background-color: #ecf0f1; /* 鼠标悬停时背景颜色 */
+  }
+  
+  /* 设置每个单元格的样式 */
+  .plist td {
+    padding: 10px 15px;
+    text-align: center;
+  }
+  
+  .begin-time,
+  .end-time {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .sell-price {
+    font-weight: bold;
+    color: #e74c3c; /* 红色价格 */
+  }
+  
+  .stonefont {
+    font-family: "Segoe UI Symbol", sans-serif;
+  }
+  
+  /* 设置选座购票按钮 */
+  .buy-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buy-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .buy-btn.normal {
+    background-color: #2ecc71; /* 绿色背景 */
+  }
+  
+  .buy-btn.normal:hover {
+    background-color: #27ae60;
+  }
+
+/* 电影名称 */
+.movie-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* 评分 */
+  .score.sc {
+    font-size: 1.2em;
+    color: #ffcc00; /* 金色评分 */
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  /* 电影描述 */
+  .movie-desc {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie-desc div {
+    margin-bottom: 10px;
+  }
+  
+  .movie-desc .key {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .movie-desc .value {
+    color: #555;
+  }
+  
+  .movie-desc span {
+    margin-right: 10px;
+  }
+  
+  /* 观影时间部分 */
+  .show-date {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .show-date span {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .show-date .date-item {
+    padding: 8px 16px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .show-date .date-item:hover {
+    background-color: #ff5722;
+    color: white;
+  }
+  
+  .show-date .date-item.active {
+    background-color: #ff5722;
+    color: white;
+  }
+  
+  
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .plist th,
+    .plist td {
+      font-size: 12px; /* 在小屏幕上调整字体大小 */
+      padding: 8px;
+    }
+  }
