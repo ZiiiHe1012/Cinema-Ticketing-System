@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const endText = tr.querySelector('.end-time').innerText.trim();
         const hall    = tr.querySelector('.hall').innerText.trim();
         const movieName = btn.dataset.movieName
-          || tr.closest('.show-list')?.querySelector('.movie-title')?.innerText.trim()
+          || tr.closest('.show-list')?.querySelector('.movie-name')?.innerText.trim()
           || '哪吒2';
   
         // —— 4. 合并：保留原先的 persons/orderRepresentative，并加上 movieInfo —— 
