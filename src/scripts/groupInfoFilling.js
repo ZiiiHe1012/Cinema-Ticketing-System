@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const orderRepresentative = persons.find(p => p.isRepresentative).userName;
     sessionStorage.setItem('bookingData',
       JSON.stringify({ persons, orderRepresentative }));
-    window.location.href = 'seatSelection.html?mode=group';
+    window.location.href = 'selectFilms.html?mode=group';
   });
 
   // 以下函数不变：attachRemoveEvent、renumberSections、updateRemoveButtons、setupReturnLogic

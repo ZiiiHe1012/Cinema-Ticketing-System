@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const orderRepresentative = persons.find(p => p.isRepresentative).userName;
     
     sessionStorage.setItem('bookingData', JSON.stringify({ persons, orderRepresentative }));
-    window.location.href = 'seatSelection.html?mode=individual';
+    window.location.href = 'selectFilms.html?mode=individual';
   });
 
   // 为已有和新添加的减号按钮绑定事件
