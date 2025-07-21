@@ -187,7 +187,37 @@
     color: white;
   }
   
-  
+  .movie.selected img {
+    border: 3px solid #f00;
+    border-radius: 4px;
+  }
+
+  .show-list {
+    display: none;
+  }
+  .show-list.active {
+    display: block;
+  }
+
+  /* 隐藏所有排期表 */
+.plist {
+  display: none;
+}
+
+/* 当前选中日期对应的排期表 */
+.plist.active {
+  display: table; /* 或者 block，看你想要的展示形式 */
+}
+
+/* 可选：给选中日期加个高亮样式 */
+.date-item.active {
+  color: #f00;
+  font-weight: bold;
+  cursor: default;
+}
+.date-item {
+  cursor: pointer;
+}
   
   /* 响应式设计 */
   @media (max-width: 768px) {
