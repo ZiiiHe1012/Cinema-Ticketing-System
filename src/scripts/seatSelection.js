@@ -1,4 +1,25 @@
+// 读取并渲染电影、时间、影厅
+function loadMovieSessionInfo() {
+    const data = JSON.parse(sessionStorage.getItem('bookingData') || '{}');
+    if (!data.movieInfo) return;
+  
+    const { name, time, hall } = data.movieInfo;
+    // 1) 标题
+    const h2 = document.querySelector('.movie-info h2');
+    if (h2) h2.textContent = name;
+  
+    // 2) session-info
+    const infoP = document.querySelector('.movie-info .session-info');
+    if (infoP) {
+      infoP.innerHTML = `
+        <span>放映时间：${time}</span>
+        <span>影厅：${hall}</span>
+      `;
+    }
+  }
+
 document.addEventListener('DOMContentLoaded', function() {
+    loadMovieSessionInfo();
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
     
@@ -52,22 +73,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 加载购票数据
     function loadBookingData() {
-        const data = JSON.parse(sessionStorage.getItem('bookingData')) || { persons: [] };
-        state.persons = data.persons.map((p, idx) => ({
-            ...p,
-            id: idx + 1,
-            type: getPersonType(p.age),
-            selectedSeat: null
+        // 先取出 bookingData，保证至少是个空对象
+        const data = JSON.parse(sessionStorage.getItem('bookingData') || '{}');
+      
+        // 如果没有传 persons，就给一个空数组（或根据业务给一个代表人）
+        const personsArr = Array.isArray(data.persons) ? data.persons : [];
+      
+        state.persons = personsArr.map((p, idx) => ({
+          ...p,
+          id: idx + 1,
+          type: getPersonType(p.age),
+          selectedSeat: null
         }));
         
-        // 判断是否为团体票
+        // 之后的团体/个人逻辑不变
         state.isGroupMode = state.persons.length >= 2 && 
                            window.location.href.includes('group');
-        
         if (state.isGroupMode) {
-            document.body.classList.add('group-mode');
+          document.body.classList.add('group-mode');
         }
-    }
+      }
     
     // 获取人员类型
     function getPersonType(age) {

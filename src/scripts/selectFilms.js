@@ -51,3 +51,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 拿到所有“选座购票”按钮
+    const buyBtns = document.querySelectorAll('.buy-btn.normal');
+  
+    buyBtns.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();  // 先阻止默认跳转
+  
+        // 从当前行 tr 里抓信息
+        const tr      = btn.closest('tr');
+        const begin   = tr.querySelector('.begin-time').innerText.trim();     // e.g. "16:20"
+        const endText = tr.querySelector('.end-time').innerText.trim();       // e.g. "18:44散场"
+        const hall    = tr.querySelector('.hall').innerText.trim();           // e.g. "激光1厅"
+        // 电影名：假设你在同一个 show-list 容器里有一个 .movie-title 元素
+        // 如果没有，可以把海报的 alt 写到 data-movie-name 上，然后这里取：
+        const movieName = btn.dataset.movieName
+        || tr.closest('.show-list')?.querySelector('.movie-name')?.innerText.trim()
+        || '哪吒2';
+  
+        // 存到 sessionStorage
+        const bookingData = {
+          movieInfo: {
+            name: movieName,
+            time: `${begin} - ${endText}`,
+            hall: hall
+          }
+        };
+        sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
+  
+        // 再跳转
+        window.location.href = btn.getAttribute('href');
+      });
+    });
+  });
