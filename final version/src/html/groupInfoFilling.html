@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电影选座系统 — 团体购票信息</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="stylesheet" type="text/css" href="../styles/index.css">
+  <link rel="stylesheet" type="text/css" href="../styles/groupInfoFilling.css">
+</head>
+
+<body>
+  <div class="background">
+    <!--背景暗色调透明度-->
+    <div class="shadow"></div>
+  </div>
+  <!-- 顶部导航栏 -->
+  <div class="infoBar">
+    <div class="projectName">
+        <p class="projectNameFont">CINEMATIX</p>
+    </div>
+    <div class="actionContainer">
+      <div class="avatar"></div>
+      <button class="return" id="returnButton">
+        <span class="reservationFont">返回主界面</span>
+      </button>
+    </div>
+  </div>
+
+  <main id="app-content">
+    <h1>团体购票信息</h1>
+  
+    <!-- 第一步：输入人数 -->
+    <div id="step1" class="step">
+      <div class="form-group">
+        <label for="participant-count" class="form-label">
+          人数 <span class="form-label__sub">Count</span>
+        </label>
+        <div class="form-control">
+          <input id="participant-count"
+                 type="number"
+                 min="1"
+                 max="20"
+                 class="form-input w-short no-spin"
+                 oninput="this.value = Math.min(Math.max(parseInt(this.value,10)||0,1),20)" />
+        </div>
+      </div>
+      <div class="controls">
+        <button id="confirm-count" class="btnSubmit next-step-btn">确认人数</button>
+      </div>
+    </div>
+  
+    <!-- 第二步：填写每位成员信息，初始隐藏 -->
+    <div id="step2" class="step" style="display: none;">
+      <div id="participants-container"></div>
+      <div class="controls">
+        <button id="next-step" class="btnSubmit next-step-btn">下一步</button>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../scripts/groupInfoFilling.js"></script>
+  
+</body>
+</html>
