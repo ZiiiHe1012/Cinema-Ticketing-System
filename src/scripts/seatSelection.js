@@ -456,11 +456,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (state.isGroupMode) {
             handleGroupSeatClick(clickedSeat, event);
         } else {
-            handleIndividualSeatClick(clickedSeat);
+            handleIndividualSeatClick(clickedSeat, event);
         }
     }
     // 个人票座位点击处理
-    function handleIndividualSeatClick(seat) {
+    function handleIndividualSeatClick(seat, event) {
         if (!state.currentPerson) {
             alert('请先选择购票人！');
             return;
@@ -483,9 +483,13 @@ document.addEventListener('DOMContentLoaded', function() {
         renderPersonList();
         updateSummary();
         drawAll();
-        const nextPerson = state.persons.find(p => !p.selectedSeat && p.id !== state.currentPerson.id);
-        if (nextPerson) {
-            selectPerson(nextPerson);
+        
+        // 只有在按住Ctrl键时才自动跳到下一个人
+        if (event && (event.ctrlKey || event.metaKey)) {
+            const nextPerson = state.persons.find(p => !p.selectedSeat && p.id !== state.currentPerson.id);
+            if (nextPerson) {
+                selectPerson(nextPerson);
+            }
         }
     }
     // 团体票座位点击处理
