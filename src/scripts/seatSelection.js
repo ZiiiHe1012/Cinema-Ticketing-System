@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
         rowSpacing: 38,
         unitPrice: 68,
         seatImages: {
-            default: '../images/seat.png',
-            selected: '../images/greenSeat.png',
+            default: '../images/greenSeat.png',
+            selected: '../images/yellowSeat.png',
             booked: '../images/redSeat.png',
             unavailable: '../images/blackSeat.png'
         }
@@ -634,8 +634,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 ctx.drawImage(img, -config.seatWidth/2, -config.seatHeight/2, 
                              config.seatWidth, config.seatHeight);
             }
+
+            // 绘制列号标签
+            const label = `${seat.col}`;
+            ctx.font = 'bold 11px Arial';
+            ctx.fillStyle = seat.status === 'booked' ? '#e24b4bff' : 
+                        seat.status === 'unavailable' ? '#181818ff' : 
+                        seat.status === 'selected' ? '#fffb00e4' : '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.fillText(label, 0, config.seatHeight * 3 / 4 + 5);
+
             ctx.restore();
         });
+        
+
+        const totalRows = Math.ceil(state.seats.length / config.seatsPerRow);
+        // 绘制行号
+        for (let row = 1; row <= totalRows; row++) {
+            const rowSeats = state.seats.filter(s => s.row === row);
+            if (rowSeats.length === 0) continue;
+            
+            const rightmostSeat = rowSeats.reduce((prev, current) => 
+                (current.col > prev.col) ? current : prev
+            );
+
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            const labelX = rightmostSeat.x - config.seatWidth/2 - 20;
+            const labelY = rightmostSeat.y;
+
+            ctx.font = 'bold 14px Arial';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(row, labelX, labelY);
+            
+            ctx.restore();
+        }
     }
     // 绘制所有内容
     function drawAll() {
