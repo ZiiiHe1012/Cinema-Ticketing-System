@@ -187,6 +187,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!state.currentPerson) return;
         const totalRows = Math.ceil(state.seats.length / config.seatsPerRow);
         state.seats.forEach(seat => {
+
+            //如果座位已经被预订(booked)或已被选择(selected)，跳过
+            if (seat.status == 'booked' || seat.status == 'selected'){
+                return;
+            }
             // 重置非已选座位的状态
             if (seat.status === 'unavailable') {
                 seat.status = 'default';
@@ -318,6 +323,11 @@ document.addEventListener('DOMContentLoaded', function() {
         state.persons.forEach(person => {
             person.selectedSeat = null;
         });
+
+        if (state.currentPerson){
+            updateAvailableSeats();
+        }
+
         renderPersonList();
         updateSummary();
         drawAll();
