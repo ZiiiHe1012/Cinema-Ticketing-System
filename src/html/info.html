@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影选座系统 - 我的预订</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+    <link rel="stylesheet" type="text/css" href="../styles/info.css">
+    <link rel="stylesheet" type="text/css" href="../styles/groupTicketPurchase.css">
+</head>
+
+<body>
+    
+    <!-- 顶部导航栏 -->
+    <div class="infoBar">
+        <div class="projectName">
+            <p class="projectNameFont">CINEMATIX</p>
+        </div>
+        <div class="actionContainer">
+            <div class="avatar"></div>
+            <button class="clearAll" id="clearAllButton">
+            <span class="reservationFont">清空订单</span>
+            </button>
+            <button class="return" id="returnButton">
+            <span class="reservationFont">返回主界面</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 主要内容区域 -->
+    <div class="content-container" id="ordersContainer">
+        <!-- JavaScript 在这里动态插入订单卡片 -->
+    </div>
+
+    <!-- 支付弹窗 -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <div id="paymentOptions">
+            <h3>请选择支付方式</h3>
+            <div class="options">
+            <button class="btn payment-option" data-method="wechat">微信支付</button>
+            <button class="btn payment-option" data-method="alipay">支付宝</button>
+            <button class="btn payment-option" data-method="bank">银行卡</button>
+            </div>
+        </div>
+        <form id="bankForm" style="display:none;">
+            <h3>银行卡支付</h3>
+            <label>
+            卡号：
+            <input type="text" id="cardNumber" placeholder="请输入卡号">
+            </label>
+            <label>
+            密码：
+            <input type="password" id="cardPassword" placeholder="请输入密码">
+            </label>
+            <button type="submit" class="btn">确认支付</button>
+        </form>
+        </div>
+    </div>
+
+  <script src="../scripts/info.js"></script>
+
+</body>
+</html>

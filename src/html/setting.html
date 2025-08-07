@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影选座系统 - 参数配置</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+    <link rel="stylesheet" type="text/css" href="../styles/setting.css">
+    
+</head>
+<body>
+    <!-- 背景 -->
+    <div class="background">
+        <div class="shadow"></div>
+    </div>
+
+    <!-- 顶部导航栏 -->
+    <div class="infoBar">
+        <div class="projectName">
+            <p class="projectNameFont">CINEMATIX</p>
+        </div>
+        <div class="actionContainer">
+            <div class="avatar"></div>
+            <button class="return" id="returnButton">
+                <span class="reservationFont">返回主界面</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 配置内容 -->
+    <div class="center-wrapper">
+        <div class="config-container">
+            <h1>系统参数配置</h1>
+            
+            <div class="config-section">
+                <h2>影厅座位设置</h2>
+                <div class="config-item">
+                    <label for="totalSeats">座位总数：</label>
+                    <input type="number" id="totalSeats" min="80" max="2600" step="1">
+                </div>
+                <div class="config-info">
+                    <p>当前设置：<span id="currentSeats">200</span> 个座位</p>
+                    <p>排数：<span id="totalRows">10</span> 排</p>
+                    <p>每排最大座位数：20 个</p>
+                </div>
+            </div>
+
+            <div class="config-actions">
+                <button id="saveConfig" class="btn-save">保存配置</button>
+                <button id="resetConfig" class="btn-reset">恢复默认</button>
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/navigation.js"></script>
+    <script src="../scripts/setting.js"></script>
+</body>
+</html>
