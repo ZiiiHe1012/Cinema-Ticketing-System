@@ -12,7 +12,7 @@
 
 ```
 Cinema-Ticketing-System/
-│   ├── html/                           # HTML 文件目录
+│   ├── html/                           # HTML文件目录
 │   ├── index.html                      # 系统主页面
 │   ├── individualInfoFilling.html      # 个人购票信息填写页
 │   ├── individualTicketPurchase.html   # 个人购票展示页
@@ -30,7 +30,7 @@ Cinema-Ticketing-System/
 │   ├── seatSelection.css               # 座位选择样式
 │   ├── info.css                        # 订单管理样式
 │   └── setting.css                     # 参数配置样式
-├── scripts/                            # JavaScript 脚本目录
+├── scripts/                            # JavaScript脚本目录
 │   ├── navigation.js                   # 导航逻辑
 │   ├── individualInfoFilling.js        # 个人购票信息填写逻辑
 │   ├── individualTicketPurchase.js     # 个人购票展示逻辑
@@ -55,7 +55,7 @@ Cinema-Ticketing-System/
 
 ### 使用说明
 
-解压缩文件夹后，进入`html`文件目录，随后点击`index.html`即可进入系统主界面。各模块的使用方法会在下一板块进行分别介绍
+解压缩文件夹后，进入`html`文件目录，随后点击`index.html`即可进入系统主界面。各模块的使用方法会在下一板块进行介绍。
 
 ## 三、各模块详细说明
 
