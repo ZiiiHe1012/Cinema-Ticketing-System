@@ -402,9 +402,6 @@ const config = {
 * 使用localStorage持久化订单和座位Json数据
 * 使用sessionStorage管理会话状态，实现无后端的完整购票流程
 
-![80eeb3403c97649ceee4fc7463e8a8d](../Documents/WeChat Files/wxid_oizbyir2mo0j52/FileStorage/Temp/80eeb3403c97649ceee4fc7463e8a8d.png)
-
-
 ## 六、系统工作流
 
 详细系统工作流如下图所示，主要包括：
@@ -422,8 +419,6 @@ const config = {
 * 预定与直接支付购票
 * 查看所有订单状态：待支付、已出票、已退票、已取消
 * 支持退票和取消操作，自动释放座位资源
-
-![cce717a7c2406470a5f70a4f733ce0a](../Documents/WeChat Files/wxid_oizbyir2mo0j52/FileStorage/Temp/cce717a7c2406470a5f70a4f733ce0a.png)
 
 ## 七、总结
 
